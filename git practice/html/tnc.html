@@ -1,0 +1,32 @@
+<ons-page ng-controller="TncController as page">
+    <ons-toolbar>
+        <div class="left" ng-show='loggedin'>
+            <ons-back-button ng-click="splitter.load('html/info.html')"></ons-back-button>
+        </div>
+        <div class="left" ng-hide='loggedin'>
+            <ons-back-button ng-click="splitter.load('html/register.html')"></ons-back-button>
+        </div>
+        <div class="center">Terms of Use</div>
+    </ons-toolbar>
+    <div class="container-wrapper full-height bg-white">
+        <div class="content p-t-2">
+            <h1 class="page-title">
+                Terms & Conditions
+            </h1>
+            <article class="text-box">
+<!--
+                <p>
+                    {{saladtext}}
+                </p>
+-->
+                <div ng-bind-html= "tnctext"></div>
+            </article>
+            <div ng-hide="loggedin" style="text-align: center; margin-top: 2em">
+                <ons-button class="dashboard-btn dashboard-btn-red" ng-click="splitter.load('html/register.html');">Continue Registration</ons-button>
+            </div>
+            <div style="text-align:center; margin-top:80px; font-size:0.8em; color:black; font-weight:500 !important" id="page_last_mod">
+                www.stash.ng
+            </div>
+        </div>
+    </div>
+</ons-page>

@@ -1,0 +1,110 @@
+<ons-page>
+    <ons-carousel var="carousel" ons-postchange="console.log('Changed to ' + $event.activeIndex)" fullscreen swipeable auto-scroll>
+        <ons-carousel-item class="carousel-item" style="background-image: url('images/heroes/honda_2.jpg')">
+            <div class="carousel-content">
+                <div class="info">
+                    <div class="carousel-brand">
+                        <img src="img/logo.png" height="100em">
+                    </div>
+                    <h1 class="carousel-title">
+                        Welcome to STASH.NG
+                    </h1>
+                    <p class="carousel-message">
+                        Your Digital Savings App
+                    </p>
+                    <!--<div class="carousel-nav">
+                        <div class="left">
+                            <ons-icon icon="md-chevron-left" size="3em" ng-click="carousel.prev()"></ons-icon>
+                        </div>
+                        <div class="right">
+                            <ons-icon icon="md-chevron-right" size="3em" ng-click="carousel.next()"></ons-icon>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="cta">
+                    <ul class="carousel-pagination">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ons-button class="carousel-cta red m-b-1" modifier="large" ng-click="splitter.load('login.html')">
+                        Sign In
+                    </ons-button>
+                    <ons-button class="carousel-cta " modifier="large" ng-click="splitter.load('html/register.html')">
+                        Register
+                    </ons-button>
+                    <p class="partnership">
+                        Stash.ng is a product of Stash Fintech Ltd in partnership with Providus Bank Plc
+                    </p>
+                    <div class="version">v 1.2.0</div>
+                </div>                
+            </div>
+        </ons-carousel-item>
+        <ons-carousel-item class="carousel-item" style="background-image: url('images/heroes/hero_12.jpg')">
+            <div class="carousel-content">
+                <div class="info">
+                    <div class="carousel-brand">
+                        <img src="img/logo.png" height="100em">
+                    </div>
+                    <h1 class="carousel-title">
+                        DIGITAL SAVINGS
+                    </h1>
+                    <p class="carousel-message">
+                        with optional interest<br> 10% per annum
+                    </p>
+                </div>
+                <div class="cta">
+                    <ul class="carousel-pagination">
+                        <li></li>
+                        <li class="active"></li>
+                        <li></li>
+                    </ul>
+                    <ons-button class="carousel-cta red m-b-1" modifier="large" ng-click="splitter.load('login.html')">
+                        Sign In
+                    </ons-button>
+                    <ons-button class="carousel-cta" modifier="large" ng-click="splitter.load('html/register.html')">
+                        Register
+                    </ons-button>
+                    <p class="partnership">
+                        Stash.ng is a product of Stash Fintech Ltd in partnership with Providus Bank Plc
+                    </p>
+                    <div class="version">v 1.2.0</div>
+                </div>               
+            </div>
+        </ons-carousel-item>
+        
+        <ons-carousel-item class="carousel-item" style="background-image: url('images/heroes/hero_11.png')">
+            <div class="carousel-content">
+                <div class="info">
+                    <div class="carousel-brand">
+                        <img src="img/logo.png" height="100em">
+                    </div>
+                    <h1 class="carousel-title">
+                        Start Saving
+                    </h1>
+                    <p class="carousel-message">
+                        The confidence you have when you
+                        <br> Start Saving Small Small
+                    </p>
+                </div>
+                <div class="cta">
+                    <ul class="carousel-pagination">
+                        <li></li>
+                        <li></li>
+                        <li class="active"></li>
+                    </ul>
+                    <ons-button class="carousel-cta red m-b-1" modifier="large" ng-click="splitter.load('login.html')">
+                        Sign In
+                    </ons-button>
+                    <ons-button class="carousel-cta" modifier="large" ng-click="splitter.load('html/register.html')">
+                        Register
+                    </ons-button>
+                    <p class="partnership">
+                        Stash.ng is a product of Stash Fintech Ltd in partnership with Providus Bank Plc
+                    </p>
+                    <div class="version">v 1.2.0</div>
+                </div>                
+            </div>
+        </ons-carousel-item>
+    </ons-carousel>
+</ons-page>

@@ -1,0 +1,95 @@
+<ons-page ng-controller="ProfilesummaryController as page" >
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Profile</div>
+    </ons-toolbar>
+
+    
+
+    <div class="full-height page-bg">
+        <div class="page-content-2">
+
+            <div class="center" align="absmiddle" style="width: 200px; margin-top: 20px; margin-bottom: 1em; margin-left: auto; margin-right: auto;" >
+                <img ng-src="{{img}}" height="200px" style="border-radius: 200px; border: 2px solid white;">
+            </div>
+
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Name
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.firstname}} {{profiledetail.othername}} {{profiledetail.surname}}
+                </div>
+            </article>
+
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Email
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.email}}
+                </div>
+            </article>
+
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Gender
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.gender}}
+                </div>
+            </article>
+
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Address
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.address}}
+                </div>
+            </article>
+
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Phone
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.phone}}
+                </div>
+            </article>
+
+            
+            <article class="dashboard-list-item">
+                <div class="title">
+                    State
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.state}}
+                </div>
+            </article>
+            
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Country
+                </div>
+                <div class="subtitle">
+                    {{profiledetail.country}}
+                </div>
+            </article> 
+        </div>
+    </div>
+
+
+    <ons-modal var="loadingModal" direction="up">
+        <div style="text-align: center">
+            <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+        </div>
+    </ons-modal>
+</ons-page>
+

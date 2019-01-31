@@ -1,0 +1,87 @@
+<ons-page ng-controller="RegistercardController as page">
+        <ons-toolbar>
+            <div class="left"><ons-back-button ng-click="splitter.load('html/dashboard.html')"></ons-back-button></div>
+            <div class="center">Card Registration</div>
+    
+        </ons-toolbar>
+        <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+            <ons-progress-circular indeterminate ></ons-progress-circular>
+        </div>
+    
+    
+        <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')" ng-show= "pageloaded">
+            <div class="page-content-2">
+                <div ng-show="pageloaded">
+    
+                    <!-- <p class="paymentPage">
+                        <label for="Name"><small style="margin-left: 0.5em;">Name</small></label><br>
+                        <ons-input id="cardName" type="text" class="text-input text-input--roundbar" placeholder="As shown on Card"  ng-model="page.card_name"></ons-input>
+                    </p> -->
+                
+                    <article class="m-b-2">
+                            <p>
+                                Kindly register your card details on our platform. This will enable you save anytime you want.
+                            </p>
+                            <p>
+                                You will be charged a registration fee of  ₦100.00 (One-time payment)
+                            </p>
+                            <!--
+                                <p> After this your selected savings plan will commence.</p>
+                            -->
+                        </article>
+                
+                    <p class="paymentPage">
+                        <label for="cardNumber">
+                            Card Number
+                        </label><br>
+                        <ons-input id="cardNumber" type="text" class="d-block"  placeholder="&dash;&dash;&dash;&dash; &dash;&dash;&dash;&dash; &dash;&dash;&dash;&dash;"
+                 ng-model="page.card_number"></ons-input>
+                    </p>
+                    
+                    <div style="display:flex;">
+                        <p class="paymentPage" style="padding-right: 15px;">
+                            <label for="expiryMonth">
+                                Expiry Month
+                            </label><br>
+                            <ons-input id="expiryMonth" type="text" class="d-block" placeholder="MM"  ng-model="page.expiry_month"></ons-input>
+                        </p>
+    
+                        <p class="paymentPage">
+                            <label for="expiryYear">
+                                Expiry Year
+                            </label><br>
+                            <ons-input id="expiryYear" type="text" class="d-block" placeholder="YY"  ng-model="page.expiry_year"></ons-input>
+                        </p>
+                    </div>
+                    <p class="paymentPage">
+            <label for="cvv">CVV Code</label><br>
+            <ons-input id="cvv" type="text" class="d-block" placeholder="&dash; &dash; &dash;"  ng-model="page.cvc"></ons-input>
+                    </p>
+    
+                    <p style="margin-top: 30px; text-align: center;">
+            <ons-button class="dashboard-btn " ng-click=" page.paynow() ">Proceed</ons-button>
+                    </p>
+                    <div ng-show= "tranxbegan">
+                        <ons-progress-bar indeterminate></ons-progress-bar>
+                    </div>
+    
+                    <ons-progress-circular ng-show="page.loading" indeterminate></ons-progress-circular>
+    
+                </div>
+            </div>
+        </div>
+    
+        <ons-modal var="loadingModal" direction="up">
+            <div style="text-align: center">
+                <p>
+                    <!--<ons-button ng-click="loadingModal.hide()">Hide modal</ons-button>-->
+                    <ons-progress-circular indeterminate></ons-progress-circular>
+                </p>
+            </div>
+        </ons-modal>
+    
+    </ons-page>
+    
+    
+    
+    

@@ -1,0 +1,75 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center"> Help </div>
+    </ons-toolbar>
+    <ons-card>
+        <ons-row ng-click="splitter.load('html/tips.html');" tappable>
+            <ons-col width="50px">
+                <ons-icon style="color: #FE3824; font-size: 2.5em; line-height:1em;" size="32px, material:2em" icon="ion-navicon, material:md-info-outline"></ons-icon>
+            </ons-col>
+            <ons-col>
+                <h3 class="fontpro" style="margin-top:0;">Tips</h3>
+                <div class="item-label">
+                    <small>Get familiar with your app</small>
+                </div>
+            </ons-col>
+        </ons-row>
+
+    </ons-card>
+
+    <ons-card ng-click="splitter.load('html/feedback.html'); $scope.previousPage= 'html/info.html';" tappable>
+        <ons-row>
+            <ons-col width="50px">
+                <ons-icon style="color: #FE3824; font-size: 2.5em; line-height:1em;" size="32px, material:2em" icon="ion-navicon, material:md-info-outline"></ons-icon>
+            </ons-col>
+            <ons-col>
+                <h3 class="fontpro" style="margin-top:0;">Feedback</h3>
+                <div class="item-label">
+                    <small>Let's know what you think about Stash</small>
+                </div>
+            </ons-col>
+        </ons-row>
+    </ons-card>
+
+    <ons-card ng-click="splitter.load('html/contactus.html'); $scope.previousPage= 'html/info.html';" tappable>
+        <ons-row>
+            <ons-col width="50px">
+                <ons-icon style="color: #FE3824; font-size: 2.5em; line-height:1em;" size="32px, material:2em" icon="ion-navicon, material:md-comment-text"></ons-icon>
+            </ons-col>
+            <ons-col>
+                <h3 class="fontpro" style="margin-top:0;">Contact</h3>
+                <div class="item-label"><small>Need to reach us?</small></div>
+            </ons-col>
+        </ons-row>
+    </ons-card>
+
+    <!-- <ons-card ng-click="splitter.load('html/help.html')" tappable>
+        <ons-row>
+            <ons-col width="70px">
+                <ons-icon style="color: #FE3824; font-size: 2.5em; padding: 20px 0px 20px 0px" size="32px, material:2em" icon="md-info"></ons-icon>
+            </ons-col>
+            <ons-col>
+                <span class="fontpro" style="color:#000"> <strong><h3>Help</h3></strong></span>
+                <div class="item-label"><small>Tips in using the application</small></div>
+            </ons-col>
+        </ons-row>
+
+    </ons-card> -->
+
+    
+    
+    <div style="padding:5px; margin-top:25px; text-align:center; font-size:0.8em !IMPORTANT; color:black;" class="fontpro">
+        Developed by:
+        <br/>
+        Stash Fintech Ltd
+        <!-- <img src="img/istlogo.jpg" width="100px" height="100px"> -->
+    </div> 
+    
+
+    
+</ons-page>

@@ -1,0 +1,35 @@
+<ons-page ng-controller="OptionController as register">
+    <!--<ons-toolbar>
+        <div class="left">
+            <ons-back-button ng-click="splitter.load('html/dashboard.html')"></ons-back-button>
+        </div>
+        <div class="center">Welcome</div>
+    </ons-toolbar>-->
+    
+    <div class="container-wrapper full-height bg-white text-center">
+        <div class="content p-t-2">
+            <figure>
+                <img src="images/heroes/piggypic.png" alt="">
+            </figure>
+            <h1 class="page-title">
+                <span>
+                    Hello
+                </span>
+                <span>
+                    {{user.fullname}}
+                </span>
+            </h1>
+            <article class="content">
+                <p>
+                    To enjoy all that Stash.ng provides you, you have to register your debit card. This enables you save anytime you want to
+                </p>
+            </article>
+            <article>
+                <ons-button class="dashboard-btn dashboard-btn-red" ng-click="splitter.load('html/registercard.html')">Register Card</ons-button>
+                <ons-button class="dashboard-btn dashboard-btn-red" ng-click="splitter.load('html/savingplan.html')">Savings Plan</ons-button>
+                <ons-button class="dashboard-btn dashboard-btn-red" ng-click="splitter.load('html/dashboard.html')">Open Dashboard</ons-button>
+                
+            </article>
+        </div>
+    </div>
+</ons-page>

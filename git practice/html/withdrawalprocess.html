@@ -1,0 +1,116 @@
+<ons-page  ng-controller="WithdrawalprocessController as page">
+    <ons-toolbar>
+        <div class="left"><ons-back-button ng-click="splitter.load('html/dashboard.html')"></ons-back-button></div>
+        <div class="center">Transfer Details</div>
+    </ons-toolbar>
+    <div class="container-wrapper">
+        <h1 class="dashboard-title">
+            Account Information
+        </h1>
+        <article class="dashboard-list-item">
+            <div class="title">
+                Status
+            </div>
+            <div class="subtitle">
+                {{user.withdrawaldetails.status}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Principal
+            </div>
+            <div class="subtitle">
+                ₦ {{user.withdrawaldetails.principal | number : 2}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Penalty
+            </div>
+            <div class="subtitle">
+                ₦ {{user.withdrawaldetails.penalty | number : 2}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Interest
+            </div>
+            <div class="subtitle">
+                ₦ {{user.withdrawaldetails.interest | number : 2}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Total
+            </div>
+            <div class="subtitle">
+                ₦ {{user.withdrawaldetails.total_withdrawal | number : 2}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Account Name
+            </div>
+            <div class="subtitle">
+                {{user.withdrawaldetails.accname}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Bank Name
+            </div>
+            <div class="subtitle">
+                {{user.withdrawaldetails.bank}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Acc Number
+            </div>
+            <div class="subtitle">
+                {{user.withdrawaldetails.accnumber}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div style="display:flex; align-items:flex-start;line-height:0;">
+                <label class="left" style="padding-right:1em;">
+                    <ons-checkbox input-id="check" checked ng-model="page.accept"></ons-checkbox>
+                </label>
+                <p for="check" class="" style="padding:0; margin: 0; line-height: 1;">
+                    <small class="d-block m-b-1">
+                        I agree that my bank details is correct
+                    </small>
+                    <span class="d-block m-b-1" style="color: red" >
+                        Note that the process is not reversible
+                    </span>
+                </p>
+            </div>         
+            <ons-button class="dashboard-btn dashboard-btn-green" ng-disabled="!page.accept" ng-click="page.completetransfer(user.withdrawaldetails)">
+                Complete Withdrawal
+            </ons-button>
+        </article>
+    </div>
+
+
+    <!--<div ng-hide="pageloaded">-->
+        <!--<ons-progress-circular  style="text-align: center" indeterminate></ons-progress-circular>-->
+    <!--</div>-->
+
+    <ons-modal var="loadingModal" direction="up">
+    <div style="text-align: center">
+    <p>
+    <!--<ons-button ng-click="loadingModal.hide()">Hide modal</ons-button>-->
+    <ons-progress-circular indeterminate></ons-progress-circular>
+    </p>
+    </div>
+    </ons-modal>
+
+</ons-page>

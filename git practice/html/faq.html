@@ -1,0 +1,35 @@
+<ons-page ng-controller="FaqController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+            <div class="center">FAQs</div>
+        </div>
+    </ons-toolbar>
+    <div class="container-wrapper full-height bg-white">
+        <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+            <ons-progress-circular indeterminate></ons-progress-circular>
+        </div>
+        <div class="content p-t-1">
+            <h1 class="page-title">
+                Frequently Asked Questions
+            </h1>
+            <div ng-show="pageloaded">
+                <ons-list>
+                    <!-- <ons-list-header>Record List</ons-list-header> -->
+                    <ons-list-item class="p-o-0" ng-repeat="item in faqs" tappable>
+                        <h2 class="page-subtitle">
+                            {{item.question}}
+                        </h2>
+                        <article class="text-box">
+                            <div ng-bind-html="item.answer">
+
+                            </div>
+                        </article>
+                    </ons-list-item>
+                </ons-list>
+            </div>
+        </div>
+    </div>
+</ons-page>

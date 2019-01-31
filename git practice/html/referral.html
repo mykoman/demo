@@ -1,0 +1,120 @@
+<ons-page ng-controller="ReferralController as page" >
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+        </p>
+    </div>
+ 
+    <div class="dashboard-wrapper" ng-show="pageloaded">
+        <div class="container-wrapper">
+            
+            <h2 class="dashboard-title">
+                Referral Balance
+            </h2>
+            <div class="dashboard-cards">
+                <div class="dashboard-card-wrapper" ng-click="splitter.load('html/referral.html')" style="width: 100%;">
+                    <article class="dashboard-card">
+                        <ons-row width="100%" style="    display: flex;
+                        align-items: center;">
+                            <ons-col width="60%"> <div>
+                                <article style="font-size: 28px; font-weight: 500 !important; text-align: left;">
+                                    &#8358;{{current_reward| number : 2}}
+                                </article>
+                            </div></ons-col>
+                            <ons-col width="40%"><ons-button class="carousel-cta red" modifier="large" style="
+                                text-transform: uppercase;
+                                " ng-click="splitter.load('html/referralwithdrawal.html')">withdraw</ons-button></ons-col>
+                        </ons-row>
+                    </article> 
+                </div>
+            </div>
+            
+            <h2 class="dashboard-title">
+                Referral details
+            </h2>
+            <div class="dashboard-cards">
+                <div class="dashboard-card-wrapper" ng-click="splitter.load('html/referral.html')" style="width: 100%;">
+                    <article class="dashboard-card">
+                        <ons-row>
+                            <ons-col>
+                                <div>
+                                    <p style="
+                                        padding: 0.3em 0;
+                                        text-align: left;
+                                        text-transform: uppercase;
+                                        margin: 0;
+                                        font-weight: bold;
+                                ">Total</p>
+                                </div>
+            
+                                <div>
+                                    <article style="font-size: 32px; text-align: left;">
+                                        {{total_referrals}}
+                                    </article>
+                                </div>
+                            </ons-col>
+        
+                            <ons-col>
+                                <div>
+                                    <p style="
+                                        padding: 0.3em 0;
+                                        text-align: left;
+                                        text-transform: uppercase;
+                                        margin: 0;
+                                        font-weight: bold;
+                                ">Active</p>
+                                </div>
+            
+                                <div>
+                                    <article style="font-size: 32px; text-align: left;">
+                                        {{active_ref}}
+                                    </article>
+                                </div>
+                            </ons-col>
+        
+                            <ons-col>
+                                <div>
+                                    <p style="
+                                        padding: 0.3em 0;
+                                        text-align: left;
+                                        text-transform: uppercase;
+                                        margin: 0;
+                                        font-weight: bold;
+                                ">Inactive</p>
+                                </div>
+            
+                                <div>
+                                    <article style="font-size: 32px; text-align: left;">
+                                    {{inactive_ref}}
+                                    </article>
+                                </div>
+                            </ons-col>
+                            </ons-row>
+                    </article> 
+                </div>
+            </div>
+
+            <p class="partnership">
+                Stash.ng is a product of Stash Fintech Ltd in partnership with Providus Bank Plc
+            </p>
+        </div>
+
+
+    </div>
+
+    <ons-modal var="loadingModal" direction="up">
+        <div style="text-align: center">
+            <p>
+                <ons-icon icon="md-spinner" size="28px" spin></ons-icon> Loading...
+            </p>
+        </div>
+    </ons-modal>
+</ons-page>

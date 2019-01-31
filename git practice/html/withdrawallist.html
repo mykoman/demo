@@ -1,0 +1,89 @@
+<ons-page  ng-controller="WithdrawallistController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Withdraw</div>
+        <!-- <div class="right">
+            <ons-toolbar-button ng-click="popover.show($event)">
+                <ons-icon icon="md-more-vert"></ons-icon>
+            </ons-toolbar-button>
+        </div> -->
+    </ons-toolbar>
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+    <div class="container-wrapper m-t-1">
+        <div ng-show="pageloaded">
+            <div ng-show="withdrawallist == '' " style="padding: 2em"><em><p>You currently do not have any account to withdraw from. You can create a new savings plan.</p></em></div>
+            <ons-list class="ons-list">
+                <ons-list-header class="dashboard-title">
+                    Account List
+                </ons-list-header>
+                <p style="margin-top: 0 !important;">
+                    Tap on the savings account you wish to withdraw
+                </p>
+                <ons-list-item class="ons-list-item" ng-click="page.picksingleaccount(item)" ng-repeat="item in withdrawallist" tappable>
+                    <article class="dashboard-plan-card">
+                        <div class="icon">
+                            <i class="fa fa-money"></i>
+                        </div>
+                        <div class="details">
+                            <div class="header">
+                                <h3 class="plan-name">
+                                    {{item.title}}
+                                </h3>
+                            </div>
+                            <div class="stats">
+                                <h2 class="balance">
+                                    <span class="label">Amount: </span>
+                                    <span class="amount">
+                                        <!-- &#x20a6;{{item.total_deposit | number : 2}} -->
+                                        &#x20a6;{{item.amount | number : 2}}{{item.total_deposit | number : 2}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance">
+                                    <span class="label">interest: </span>
+                                    <span class="amount">
+                                        <!-- &#x20a6;{{item.interest.total_interest | number : 2}} -->
+                                        &#x20a6;{{item.interest.total_interest | number : 2}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance">
+                                    <span class="label">Date Started: </span>
+                                    <span class="amount">
+                                        {{item.created_at}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance">
+                                    <span class="label">Status: </span>
+                                    <span class="amount">
+                                        {{item.status}}
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+                    </article>
+                </ons-list-item>
+            </ons-list>
+            <!--<div style="text-align: center; margin-top: 2em">-->
+            <!--<ons-button  ng-click="splitter.load('html/cashplan.html')">Create Savings Plan</ons-button>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!-- <ons-popover direction="left" var="popover" cancelable>
+        <div style="padding: 10px; text-align: center;" >
+            <ons-list>
+
+                <ons-list-item ng-click="splitter.load('html/withdrawalincompletelist.html')" tappable>
+                    Incomplete Account List
+            </ons-list>
+
+        </div>
+    </ons-popover> -->
+
+</ons-page>

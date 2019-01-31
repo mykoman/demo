@@ -1,0 +1,303 @@
+<ons-page ng-controller="CashplanController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Create Savings Plan</div>
+    </ons-toolbar>
+
+
+
+    <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')">
+        <div class="page-content-2">
+
+            <h1 class="form-title">
+                Choose the plan that best suits you
+            </h1>
+            <ons-select class="form-select" ng-model="page.plan" id="choose-sel" ng-change="page.changeplan()">
+                <option value="">Choose Savings Plan</option>
+                <option value="daily">Daily Savings</option>
+                <option value="weekly">Weekly Savings</option>
+                <option value="monthly">Monthly Savings</option>
+                <option value="casual">Casual Savings</option>
+                <!-- <option value="casual">Casual Savings</option> -->
+            </ons-select>
+            <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+
+            <!--Daily plan begins here-->
+            <div id="daily" ng-show="daily">
+                <ons-select class="form-select" ng-model="page.dailypurpose">
+                    <option value="" selected>Choose savings purpose</option>
+                    <!--<option value="Health">Health</option>-->
+                    <option value="Business Expansion">Business Expansion</option>
+                    <option value="Car Purchase">Car Purchase</option>
+                    <option value="Car Repairs">Car Repairs</option>
+                    <option value="Children">Children</option>
+                    <option value="Education">Education</option>
+                    <option value="Extra Cash">Extra Cash</option>
+                    <option value="Family Allowance">Family Allowance</option>
+                    <option value="Family Emergencies">Family Emergencies</option>
+                    <option value="House Rent" selected="">House Rent</option>
+                    <option value="Pilgrimage">Pilgrimage</option>
+                    <option value="Vacation">Vacation</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Others">Others</option>
+                </ons-select>
+
+                <p class="m-t-2 input-tooltip input-tooltip">
+                    <ons-input class="d-inlineblock" ng-change="page.getdailytarget()" type="number" modifier="underbar"
+                        placeholder="Daily savings amount(₦)" float ng-model="page.dailyamount"></ons-input><span>
+                        <ons-icon ng-click="dailyAmount.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                    </span>
+                    <!--<small>Daily debit amount</small>-->
+                </p>
+                <p class="m-t-2 input-tooltip input-tooltip">
+                    <ons-input class="d-inlineblock" type="number" ng-change="page.getdailytarget()" modifier="underbar"
+                        placeholder="Number of days" float ng-model="page.days"></ons-input><span>
+                        <ons-icon ng-click="NumOfDays.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                    </span>
+                    <!--<small>Number of days</small>-->
+                </p>
+
+                <!-- <ons-select ng-model="page.dailytime">
+
+                    <option value="" selected="">Choose Savings Time</option>
+                    <option value="00:00:00">00:00:00</option>
+                    <option value="03:00:00">03:00:00</option>
+                    <option value="06:00:00">06:00:00</option>
+                    <option value="09:00:00">09:00:00</option>
+                    <option value="12:00:00">12:00:00</option>
+                    <option value="15:00:00">15:00:00</option>
+                    <option value="18:00:00">18:00:00</option>
+                    <option value="21:00:00">21:00:00</option>
+
+                </ons-select> -->
+                <p class="m-t-2 input-tooltip input-tooltip">
+                    Number of Days:
+                    <strong class="txt-medium txt-bold"> {{page.days}} </strong>
+                </p>
+                <p class="m-t-2 input-tooltip input-tooltip">
+                    Daily Savings Amount :
+                    <strong class="txt-medium txt-bold">₦ {{page.dailyamount}} </strong>
+                </p>
+                <p class="m-t-2 input-tooltip input-tooltip">
+                    Savings Target:
+                    <strong class="txt-medium txt-bold">₦ {{page.dailytarget}} </strong>
+                </p>
+
+                <ons-button class="dashboard-btn" modifier="large" ng-click="page.startdaily()">Start
+                    Daily Plan</ons-button>
+            </div>
+            <!--End of daily debit-->
+
+            <!--Weekly Plan begins-->
+            <div id="weekly" ng-show="weekly">
+                <ons-select class="form-select" ng-model="page.weeklypurpose">
+                    <option value="" selected> Choose Savings Purpose</option>
+                    <!--<option value="Health">Health</option>-->
+                    <option value="Business Expansion">Business Expansion</option>
+                    <option value="Car Purchase">Car Purchase</option>
+                    <option value="Car Repairs">Car Repairs</option>
+                    <option value="Children">Children</option>
+                    <option value="Education">Education</option>
+                    <option value="Extra Cash">Extra Cash</option>
+                    <option value="Family Allowance">Family Allowance</option>
+                    <option value="Family Emergencies">Family Emergencies</option>
+                    <option value="House Rent" selected="">House Rent</option>
+                    <option value="Pilgrimage">Pilgrimage</option>
+                    <option value="Vacation">Vacation</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Others">Others</option>
+                </ons-select>
+
+                <p class="m-t-2 input-tooltip input-tooltip">
+                    <ons-input class="d-inlineblock" ng-change="page.getweeklytarget()" type="number" modifier="underbar"
+                        placeholder="Weekly savings amount (₦)" float ng-model="page.weeklyamount"></ons-input><span>
+                        <ons-icon ng-click="weeklyAmount.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                    </span>
+                    <!--<small>Daily debit amount</small>-->
+                </p>
+                <p class="m-t-2 input-tooltip">
+                    <ons-input class="d-inlineblock" type="number" ng-change="page.getweeklytarget()" id="" modifier="underbar"
+                        placeholder="Number of weeks" float ng-model="page.weeks""></ons-input><span>
+                        <ons-icon ng-click="NumOfWeeks.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                    </span>
+                    <!--<small>Number of days</small>-->
+                </p>
+
+                <ons-select class="form-select" ng-model="page.weeklytime">
+                    <option value="" selected="">Choose day to save</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                </ons-select>
+
+                <p class="m-t-2 input-tooltip">
+                    Number of Weeks:
+                    <strong class="txt-medium txt-bold"> {{page.weeks}} </strong>
+                </p>
+                <p class="m-t-2 input-tooltip">
+                    Weekly Savings Amount :
+                    <strong class="txt-medium txt-bold">{{page.weeklyamount}} </strong>
+                </p>
+                <p class="m-t-2 input-tooltip">
+                    Savings Target:
+                    <strong class="txt-medium txt-bold">₦ {{page.weeklytarget}} </strong>
+                </p>
+
+                <ons-button class="dashboard-btn" modifier="large" ng-click="page.startweekly()">Start
+                    Weekly Plan</ons-button>
+            </div>
+            <!--End of weekly plan-->
+
+            <!--Monthly plan begins-->
+            <div id="monthly" ng-show="monthly">
+                <ons-select class="form-select" ng-model="page.monthlypurpose">
+                    <option value="" selected>Choose savings purpose</option>
+                    <!--<option value="Health">Health</option>-->
+                    <option value="Business Expansion">Business Expansion</option>
+                    <option value="Car Purchase">Car Purchase</option>
+                    <option value="Car Repairs">Car Repairs</option>
+                    <option value="Children">Children</option>
+                    <option value="Education">Education</option>
+                    <option value="Extra Cash">Extra Cash</option>
+                    <option value="Family Allowance">Family Allowance</option>
+                    <option value="Family Emergencies">Family Emergencies</option>
+                    <option value="House Rent" selected="">House Rent</option>
+                    <option value="Pilgrimage">Pilgrimage</option>
+                    <option value="Vacation">Vacation</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Others">Others</option>
+                </ons-select>
+
+                <p class="m-t-2 input-tooltip">
+                    <ons-input class="d-inlineblock" ng-change="page.getmonthlytarget()" type="number"
+                        modifier="underbar" placeholder="Monthly savings amount (₦)" float ng-model="page.monthlyamount"
+                        ></ons-input><span>
+                        <ons-icon ng-click="monthlyAmount.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                    </span>
+                </p>
+                <p class="m-t-2 input-tooltip">
+                    <ons-input class="d-inlineblock" type="number" ng-change="page.getmonthlytarget()" id="lastname"
+                        modifier="underbar" placeholder="Number of months" float ng-model="page.months"></ons-input><span>
+                        <ons-icon ng-click="NumOfMonths.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                    </span>
+                </p>
+
+                <ons-select class="form-select" ng-model="page.monthlytime" id="monthlytime">
+                    <option value="" selected>Choose Savings Time</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                    <option value="13th">13th</option>
+                    <option value="14th">14th</option>
+                    <option value="15th">15th</option>
+                    <option value="16th">16th</option>
+                    <option value="17th">17th</option>
+                    <option value="18th">18th</option>
+                    <option value="19th">19th</option>
+                    <option value="20th">20th</option>
+                    <option value="21th">21th</option>
+                    <option value="22nd">22nd</option>
+                    <option value="23rd">23rd</option>
+                    <option value="24th">24th</option>
+                    <option value="25th">25th</option>
+                    <option value="26th">26th</option>
+                    <option value="27th">27th</option>
+                    <option value="28th">28th</option>
+                </ons-select>
+
+                <p class="m-t-2 input-tooltip">
+                    Number of Months:
+                    <strong class="txt-medium txt-bold"> {{page.months}} </strong>
+                </p>
+                <p class="m-t-2 input-tooltip">
+                    Monthly Savings Amount : ₦
+                    <strong class="txt-medium txt-bold">{{page.monthlyamount}} </strong>
+                </p>
+                <p class="m-t-2 input-tooltip">
+                    Savings Target:
+                    <strong class="txt-medium txt-bold">₦ {{page.monthlytarget}} </strong>
+                </p>
+
+                <ons-button class="dashboard-btn" modifier="large" ng-click="page.startmonthly()">Start
+                    Monthly Plan</ons-button>
+            </div>
+        </div>
+    </div>
+
+    <!--Monthly plan ends-->
+
+    <ons-modal var="loadingModal" direction="up">
+        <!-- <div style="text-align: center">
+            <p>
+                
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </p>
+        </div> -->
+        <div style="text-align: center">
+            <p>
+                <ons-icon icon="md-spinner" size="28px" spin></ons-icon> Loading...
+            </p>
+        </div>
+    </ons-modal>
+
+
+    <ons-popover direction="up down" var="dailyAmount" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum daily savings amount is ₦70
+            </p>
+        </div>
+    </ons-popover>
+    <ons-popover direction="up down" var="NumOfDays" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum number of days for which you can save is Sixty(60) days
+            </p>
+        </div>
+    </ons-popover>
+    <ons-popover direction="up down" var="weeklyAmount" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum weekly savings amount is ₦500
+            </p>
+        </div>
+    </ons-popover>
+    <ons-popover direction="up down" var="NumOfWeeks" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum number of weeks for which you can save is Eight(8) weeks
+            </p>
+        </div>
+    </ons-popover>
+    <ons-popover direction="up down" var="monthlyAmount" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum monthly savings amount is ₦2000
+            </p>
+        </div>
+    </ons-popover>
+    <ons-popover direction="up down" var="NumOfMonths" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum number of months for which you can save is two(2) months
+            </p>
+        </div>
+    </ons-popover>
+</ons-page>

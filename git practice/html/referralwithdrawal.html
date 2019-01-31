@@ -1,0 +1,95 @@
+<ons-page  ng-controller="ReferralwithdrawalController as page">
+    <ons-toolbar>
+        <div class="left"><ons-back-button ng-click="splitter.load('html/dashboard.html')"></ons-back-button></div>
+        <div class="center">Bonus Details</div>
+    </ons-toolbar>
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+        </p>
+    </div>
+
+    <div class="container-wrapper" ng-show="pageloaded">
+        <h1 class="dashboard-title">
+            Account Information
+        </h1>
+        
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Bonus Amount
+            </div>
+            <div class="subtitle">
+                ₦ {{amount | number : 2}}
+            </div>
+        </article>
+
+        
+
+        
+
+        
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Account Name
+            </div>
+            <div class="subtitle">
+                {{bankdetail.name}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Bank Name
+            </div>
+            <div class="subtitle">
+                {{bankdetail.bank}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div class="title">
+                Acc Number
+            </div>
+            <div class="subtitle">
+                {{bankdetail.accnumber}}
+            </div>
+        </article>
+
+        <article class="dashboard-list-item">
+            <div style="display:flex; align-items:flex-start;line-height:0;">
+                <label class="left" style="padding-right:1em;">
+                    <ons-checkbox input-id="check" checked ng-model="page.accept"></ons-checkbox>
+                </label>
+                <p for="check" class="" style="padding:0; margin: 0; line-height: 1;">
+                    <small class="d-block m-b-1">
+                        I agree that my bank details is correct
+                    </small>
+                    <span class="d-block m-b-1" style="color: red" >
+                        Note that the process is not reversible
+                    </span>
+                </p>
+            </div>         
+            <ons-button class="dashboard-btn dashboard-btn-green" ng-disabled="!page.accept" ng-click="page.completetransfer()">
+                Complete Withdrawal
+            </ons-button>
+        </article>
+    </div>
+
+
+    <!--<div ng-hide="pageloaded">-->
+        <!--<ons-progress-circular  style="text-align: center" indeterminate></ons-progress-circular>-->
+    <!--</div>-->
+
+    <ons-modal var="loadingModal" direction="up">
+    <div style="text-align: center">
+    <p>
+    <!--<ons-button ng-click="loadingModal.hide()">Hide modal</ons-button>-->
+    <ons-progress-circular indeterminate></ons-progress-circular>
+    </p>
+    </div>
+    </ons-modal>
+
+</ons-page>

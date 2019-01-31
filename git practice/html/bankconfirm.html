@@ -1,0 +1,49 @@
+<ons-page ng-controller="BankdetailconfirmController as page" >
+    <ons-toolbar  modifier="">
+        <div class="left">
+            <ons-toolbar-button ng-click="splitter.load('html/bankdetailuserinput.html')">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Bank Details Confirm</div>
+    </ons-toolbar>
+
+    <div class="full-height page-bg">
+        
+        <div class="page-content-2">
+
+            <p>
+                <ons-input style = "width: 100%;" id="accname" modifier="none" float ng-model="page.accname" readonly></ons-input>
+            </p>
+    
+            <p>
+                <ons-input style = "width: 100%;" id="accno" modifier="none" float ng-model="page.accno" readonly></ons-input>
+            </p>
+    
+            <p>
+                <ons-input style = "width: 100%;" id="bank" modifier="none" float ng-model="page.bank" readonly></ons-input>
+            </p>
+    
+            <p>
+                <ons-button class="dashboard-btn" modifier="large" ng-click="page.savetodb()">Confirm Details</ons-button>
+            </p>
+        </div>  
+        
+        
+    </div>
+
+    
+    <ons-modal var="loadingModal" direction="up">
+        <!-- <div style="text-align: center">
+            <p>
+                
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </p>
+        </div> -->
+        <div style="text-align: center">
+            <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+        </div>
+    </ons-modal>
+</ons-page>

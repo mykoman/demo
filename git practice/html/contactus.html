@@ -1,0 +1,38 @@
+<ons-page ng-controller="ContactusController as contact">
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button ng-click="splitter.load('html/info.html')"></ons-back-button>
+        </div>
+        <div class="center"><strong>Contact</strong></div>
+    </ons-toolbar>
+    <div class="container-wrapper full-height bg-white">
+        <div class="content p-t-2">
+            <h1 class="page-subtitle">
+                Reach out to us. We will be glad to hear from you!
+            </h1>
+            <article class="text-box m-t-2">
+                <p style="display: flex; align-items: center;">
+                    <ons-icon style="font-size: 2.5em; padding-left: 0.3em;" size="32px, material:2em" icon="md-phone"></ons-icon> 
+                    <span style="padding-left:1em">{{phone}}</span>
+                </p>
+                <p style="display: flex; align-items: center;">
+                    <ons-icon style="font-size: 2.5em; padding-left: 0.3em;" size="32px, material:2em" icon="md-email"></ons-icon> 
+                    <span style="padding-left:1em">{{email}}</span>
+                </p>
+                <p style="display: flex; align-items: center;">
+                    <ons-icon style="font-size: 2.5em; padding-left: 0.3em;" size="32px, material:2em" icon="md-link"></ons-icon> 
+                    <span style="padding-left:1em">www.stash.ng</span>
+                </p>
+            </article>
+            <div style="text-align:center; margin-top:80px; font-size:0.8em; color:black; font-weight:500 !important" id="page_last_mod">
+                www.stash.ng
+            </div>
+        </div>
+    </div>   
+    
+    <!-- <ons-toast style="padding: 0.3em" var="toast" animation-options="{duration: 0.5, delay: 0.5, timing: 'ease-in'}">
+        Message Sent!
+    </ons-toast> -->
+</ons-page>
+    
+  

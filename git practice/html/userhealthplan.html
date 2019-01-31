@@ -1,0 +1,118 @@
+<ons-page  ng-controller="UserhealthplanController as page">
+    <ons-toolbar>
+        <div class="left"><ons-back-button ng-click="splitter.load('html/dashboard.html')"></ons-back-button></div>
+        <div class="center">Health Plan</div>
+    </ons-toolbar>
+    <div ng-show="pageloaded">
+        <!-- <div class="left">
+            <img class="list-item__thumbnail" src="http://placekitten.com/g/40/40">
+        </div> -->
+
+        <!--<ons-list>
+            <ons-list-item>Name: <span style="padding-left: 2em; color: red"><strong>{{fullname}}</strong></span></ons-list-item>
+            <ons-list-item>HMO: <span style="padding-left: 2em"><strong> {{userdetail.hmo}} </strong></span></ons-list-item>
+            <ons-list-item>Status: <span style="padding-left: 2em"><strong>{{userdetail.dailyclinic.status}} {{userdetail.weeklyclinic.status}} {{userdetail.monthlyclinic.status}}</strong></span></ons-list-item>
+            <ons-list-item>Savings Plan: <span style="padding-left: 2em"><strong>{{userdetail.plan}}</strong></span></ons-list-item>
+            <ons-list-item>State: <span style="padding-left: 2em"><strong>{{userdetail.state}}</strong></span></ons-list-item>
+            <ons-list-item>City: <span style="padding-left: 2em"><strong>{{userdetail.city}}</strong></span></ons-list-item>
+            <ons-list-item>Hospital Name: <span style="padding-left: 2em"><strong>{{userdetail.hospital_name}}</strong></span></ons-list-item>
+            <ons-list-item>Hospital Address: <span style="padding-left: 2em"><strong>{{userdetail.hospital_address}}</strong></span></ons-list-item>
+        </ons-list>-->
+        
+        <section>
+            <div class="container-wrapper m-t-1">
+                <article class="dashboard-list-item">
+                    <div class="profile-box">
+                        <div class="image-box">
+                            <img src="images/people/onewoman.png" alt="" class="profile-image">
+                        </div>
+                        <div class="info-box">
+                            <div class="name">
+                                {{fullname}}
+                            </div>
+                            <div class="status">
+                                {{userdetail.dailyclinic.status}}
+                                {{userdetail.weeklyclinic.status}}
+                                {{userdetail.monthlyclinic.status}}
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="container-wrapper">
+                <article class="dashboard-list-item">
+                    <div class="title">
+                        HMO
+                    </div>
+                    <div class="subtitle">
+                        {{userdetail.hmo}}
+                    </div>
+                </article>
+            </div>
+            <div class="container-wrapper">
+                <article class="dashboard-list-item">
+                    <div class="title">
+                        Savings Plan
+                    </div>
+                    <div class="subtitle">
+                        {{userdetail.plan}}
+                    </div>
+                </article>
+            </div>
+            <div class="container-wrapper">
+                <article class="dashboard-list-item">
+                    <div class="title">
+                        State
+                    </div>
+                    <div class="subtitle">
+                        {{userdetail.state}}
+                    </div>
+                </article>
+            </div>
+            <div class="container-wrapper">
+                <article class="dashboard-list-item">
+                    <div class="title">
+                        City
+                    </div>
+                    <div class="subtitle">
+                        {{userdetail.city}}
+                    </div>
+                </article>
+            </div>
+            <div class="container-wrapper">
+                <article class="dashboard-list-item">
+                    <div class="title">
+                        Hospital Name
+                    </div>
+                    <div class="subtitle">
+                        {{userdetail.hospital_name}}
+                    </div>
+                </article>
+            </div>
+            <div class="container-wrapper">
+                <article class="dashboard-list-item">
+                    <div class="title">
+                        Hospital Address
+                    </div>
+                    <div class="subtitle">
+                        {{userdetail.hospital_address}}
+                    </div>
+                </article>
+            </div>
+
+        </section>
+
+
+    </div>
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+
+    <!-- <ons-fab position="bottom right" ng-click="page.createdependant()">
+        <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab> -->
+</ons-page>

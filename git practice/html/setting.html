@@ -1,0 +1,77 @@
+<ons-page ng-controller="SettingController as page">
+    <ons-toolbar>
+        <div class="left"><ons-back-button ng-click="splitter.load('html/dashboard.html')"></ons-back-button></div>
+        <div class="center">Settings</div>
+
+    </ons-toolbar>
+    <div class="full-height page-bg" ng-show= "pageloaded">
+        <div class="page-content-2">
+    
+            
+            <div>
+                <p class="m-t-2 settings-item">
+                    Earn Interest on Savings : 
+                
+                    <ons-button class="dashboard-btn dashboard-btn-trans settings-btn">{{varinterest}}</ons-button>
+                </p>
+                
+
+                <p class="m-t-2 settings-item">
+                    Weekly SMS Notification  
+                    
+                
+                    <ons-button class="dashboard-btn dashboard-btn-trans settings-btn">{{varweeksms}}</ons-button>
+                </p>
+                
+
+
+                <p class="m-t-2 settings-item">
+                        Monthly SMS Notification
+                    
+                    
+                    <ons-button class="dashboard-btn dashboard-btn-trans settings-btn">{{varmonthsms}}</ons-button>
+                </p>
+                
+
+                <p class="m-t-2 settings-item">
+                        Weekly Savings Email Notification
+                        
+                    
+                    <ons-button class="dashboard-btn dashboard-btn-trans settings-btn">{{varweekemail}}</ons-button>
+                </p>
+                    
+
+                <p class="m-t-2 settings-item">
+                        Monthly Savings Email Notification
+                        
+                    
+                    <ons-button class="dashboard-btn dashboard-btn-trans settings-btn">{{varmonthemail}}</ons-button> 
+                </p>
+                    
+                
+                <ons-button class="dashboard-btn dashboard-btn-trans" modifier="large" ng-click="splitter.load('html/resetsetting.html')">Reset Options</ons-button>
+            </div>
+            
+    
+                
+            
+        </div>
+    </div>    
+    <ons-modal var="loadingModal" direction="up">
+        <!-- <div style="text-align: center">
+            <p>
+                
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </p>
+        </div> -->
+        <div style="text-align: center">
+            <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+        </div>
+    </ons-modal>
+
+</ons-page>
+
+
+

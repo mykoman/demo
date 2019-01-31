@@ -1,0 +1,140 @@
+<ons-page ng-controller="DashboardCtrl as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+    </ons-toolbar>
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+    <div class="dashboard-wrapper" ng-show="pageloaded">
+        <div class="top">
+            <div class="container-wrapper dashboard-bg padding-tb-20">
+                <figure class="dashboard-header">
+                    <figcaption class="details">
+                        <h1 class="name">
+                            <span style="font-weight:300 !important; font-size: 0.9em;">
+                                Welcome,
+                            </span>
+                            <br>
+                            {{user.fullname}}
+                        </h1>
+                        <h2 class="balance">
+                            <span class="label">Account Balance: </span>
+                            <span class="amount">
+                                &#x20a6; {{userbalance}}
+                            </span>
+                        </h2>
+                    </figcaption>
+                    <span class="img-bg">
+                        <img src="images/icons/stash.png" height="45em">
+                    </span>
+                </figure>
+            </div>
+            
+            <div class="container-wrapper">
+                
+                <ons-list class="ons-list">
+                    <ons-list-header class="dashboard-title">
+                        What would you like to do?
+                    </ons-list-header>
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card-wrapper">
+                            <article class="dashboard-card" ng-click="splitter.load('html/savingplan.html')">
+                                <div class="icon">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <h2 class="title">
+                                    Start Saving
+                                </h2>
+                            </article>
+                        </div>
+                        <div class="dashboard-card-wrapper">
+                            <article class="dashboard-card" ng-click="splitter.load('html/usersavingplan.html')">
+                                <div class="icon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <h2 class="title">
+                                    Savings Accounts
+                                </h2>
+                            </article>
+                        </div>
+                        <div class="dashboard-card-wrapper">
+                        <article class="dashboard-card" ng-click="splitter.load('html/profileinit.html')">
+                                <div class="icon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <h2 class="title">
+                                    Profile
+                                </h2>
+                            </article>
+                        </div>
+                        <div class="dashboard-card-wrapper">
+                            <article class="dashboard-card" ng-click="splitter.load('html/faq.html')" >
+                                <div class="icon">
+                                    <i class="fa fa-info"></i>
+                                </div>
+                                <h2 class="title">
+                                    FAQs
+                                </h2>
+                            </article>
+                        </div>
+                        
+                        
+                    </div>
+                    <h2 class="dashboard-title">
+                        Referral
+                    </h2>
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card-wrapper" ng-click="splitter.load('html/referral.html')" style="width: 100%;">
+                            <article class="dashboard-card">
+                                <div style="padding: 0.5em;">
+                                    <p style="margin-top: 0;
+                                    margin-bottom: 0.8em;
+                                    color: black;
+                                    font-weight: 500 !important;
+                                    font-size: 0.9em;">
+                                        Get &#8358;{{referral_rate| number : 2}} for every person you refer to Stash App! Invite you family and friends today using your referral code 
+                                    </p>
+                                </div>
+                                <div class="dashboard-referral-code">
+                                    {{referral_code}}
+                                </div>
+                            </article> 
+                        </div>
+                    </div>
+                    <p class="partnership">
+                        Stash.ng is a product of Stash Fintech Ltd in partnership with Providus Bank Plc
+                    </p>
+                </ons-list>
+            </div>
+        </div>
+
+        <div class="dashboard-footer bottom">
+            <div class="footer-item share" ng-click="splitter.share('Hello, I have been using this awesome savings app that has good interest rate called Stash.ng. I think you should try it out.', 'https://play.google.com/store/apps/details?id=stash.stashfintechltd.ogbuma')">
+                <ons-icon size="20px, material:1.5em" icon="md-share"></ons-icon> 
+                <div class="title">
+                    Share
+                </div>
+            </div>
+            <div class="footer-item help" ng-click="splitter.load('html/info.html')">
+                <ons-icon size="20px, material:1.5em" icon="md-help-outline"></ons-icon>
+                <div class="title">
+                    Help
+                </div>
+            </div>
+            <div class="footer-item signout" ng-click="splitter.signout()">
+                <ons-icon size="20px, material:1.5em" icon="md-power"></ons-icon>
+                <div class="title">
+                    Sign Out
+                </div>
+            </div>
+        </div>
+    </div>
+</ons-page>
+

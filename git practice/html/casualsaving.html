@@ -1,0 +1,109 @@
+<ons-page ng-controller="CasualsavingController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Casual Savings</div>
+    </ons-toolbar>
+    <div ng-show="pageloaded">
+        <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')">
+            <div class="page-content-2">
+
+
+
+
+                <!--Daily plan begins here-->
+                <div>
+                    <ons-select class="form-select" ng-model="page.casualpurpose">
+                        <option value="" selected> Choose Savings Purpose</option>
+                        <!--<option value="Health">Health</option>-->
+                        <option value="Business Expansion">Business Expansion</option>
+                        <option value="Car Purchase">Car Purchase</option>
+                        <option value="Car Repairs">Car Repairs</option>
+                        <option value="Children">Children</option>
+                        <option value="Education">Education</option>
+                        <option value="Extra Cash">Extra Cash</option>
+                        <option value="Family Allowance">Family Allowance</option>
+                        <option value="Family Emergencies">Family Emergencies</option>
+                        <option value="House Rent" selected="">House Rent</option>
+                        <option value="Pilgrimage">Pilgrimage</option>
+                        <option value="Vacation">Vacation</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Others">Others</option>
+                    </ons-select>
+
+                    <p class="m-t-2">
+                        <ons-input class="d-inlineblock" ng-change="page.calculate_interest()"
+                            type="number" modifier="underbar" placeholder="Amount(₦)" float ng-model="page.amount"
+                            style="width: 80%;"></ons-input><span>
+                            <ons-icon ng-click="savingsAmount.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                            <!--<small>Daily debit amount</small>-->
+                    </p>
+                    <p class="m-t-2">
+                        <ons-input class="d-inlineblock" type="number" ng-change="page.completiondate()"
+                            modifier="underbar" placeholder="Number of days" float ng-model="page.days" style="width: 80%;"></ons-input><span>
+                            <ons-icon ng-click="savingsPeriod.show($event)" size="32px, material:2em" icon="md-info"></ons-icon>
+                            <!--<small>Number of days</small>-->
+                    </p>
+
+                    <p class="m-t-2">
+                        Interest Rate:
+                        <strong class="txt-medium txt-bold"> {{interestrate | number : 2 }} % </strong>
+                    </p>
+
+                    <p class="m-t-2">
+                        Interest:
+                        <strong class="txt-medium txt-bold">₦ {{page.interest | number : 2 }} </strong>
+                    </p>
+
+                    <p class="m-t-2">
+                        Amount upon completion:
+                        <strong class="txt-medium txt-bold"> ₦ {{page.totalamount | number : 2 }} </strong>
+                    </p>
+
+                    <p class="m-t-2">
+                        Completion Date:
+                        <strong class="txt-medium txt-bold"> {{page.completiondatevalue }} </strong>
+                    </p>
+
+                    <ons-button class="dashboard-btn dashboard-btn-trans" modifier="large" ng-click="page.casualplan()">Start
+                        Saving</ons-button>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <ons-modal var="loadingModal" direction="up">
+        <div style="text-align: center">
+            <p>
+                <!--<ons-button ng-click="loadingModal.hide()">Hide modal</ons-button>-->
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </p>
+        </div>
+    </ons-modal>
+
+    <ons-popover direction="up down" var="savingsAmount" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum Casual savings amount is ₦5000
+            </p>
+        </div>
+    </ons-popover>
+    <ons-popover direction="up down" var="savingsPeriod" cancelable>
+        <div style="padding: 10px; text-align: center;">
+            <p>
+                The minimum number of days for which you can save is Sixty(60) days
+            </p>
+        </div>
+    </ons-popover>
+</ons-page>

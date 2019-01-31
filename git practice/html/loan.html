@@ -1,0 +1,25 @@
+<ons-page  ng-controller="LoanController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Salary Advance</div>
+    </ons-toolbar>
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+    <div ng-show="pageloaded">
+        <div style="padding: 2em"><em><p>{{saladtext}}</p></em></div>
+       
+    </div>
+    
+    <ons-fab position="bottom right" ng-click="page.checkcarddetails()">
+        <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab>
+
+    
+</ons-page>

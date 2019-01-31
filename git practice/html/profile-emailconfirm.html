@@ -1,0 +1,75 @@
+<ons-page ng-controller="ProfileController as page" >
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Profile - Confirm Email</div>
+    </ons-toolbar>
+
+    <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')">
+        <div ng-show="pageloaded">
+            <div class="page-content-2">
+
+                <div class="profile-page-number-box">
+                    <!--    Box 1 -->
+                    <div class="profile-page-number-circle completed" style="margin-left: 1.83%;"><span class="profile-page-number">1</span></div><!--
+                            horizontal line btw boxes
+                        --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line-completed"></div>
+                    </div><!--
+                            Box 2
+                    --><div class="profile-page-number-circle completed"><span class="profile-page-number">2</span></div><!--
+                                    horizontal line btw boxes
+                        --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line-completed"></div>
+                    </div><!--
+                                                Box 3
+                    --><div class="profile-page-number-circle completed"><span class="profile-page-number">3</span></div><!--
+                                                    horizontal line btw boxes
+                    --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line-completed"></div>
+                    </div><!--
+                                                Box 4
+                    --><div class="profile-page-number-circle completed"><span class="profile-page-number">4</span></div><!--
+                                                    horizontal line btw boxes
+                    --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line-completed"></div>
+                    </div><!--
+                                                Box 5
+                    --><div class="profile-page-number-circle highlight"><span class="profile-page-number">5</span></div><!--
+                                                    horizontal line btw boxes
+                    --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line"></div>
+                    </div><!--
+                                                Box 6
+                    --><div class="profile-page-number-circle" style="margin-right: 1.83%;"><span class="profile-page-number">6</span></div>
+                </div>
+
+                <div class="centre">
+                    <p class="profile-bio-p">
+                        Confirmation token has been sent to your mail. Kindly check your mail and use token.
+                    </p>
+                    <p class="profile-bio-p">
+                        <ons-input class="d-block" id="token" ng-model="page.token" modifier="underbar" placeholder="Token"></ons-input>
+                    </p>
+                </div>
+
+                <p class="profile-bio-p" style="margin-top: 30px;">
+                    <ons-button class="dashboard-btn" modifier="large" ng-click="page.confirmtoken();">Confirm</ons-button>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <ons-modal var="loadingModal" direction="up">
+        <div style="text-align: center">
+            <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+        </div>
+    </ons-modal>
+    </ons-page>
+

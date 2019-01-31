@@ -1,0 +1,91 @@
+<ons-page ng-controller="SettingController as page">
+        <ons-toolbar>
+            <div class="left"><ons-back-button ng-click="splitter.load('html/setting.html')"></ons-back-button></div>
+            <div class="center">Settings</div>
+    
+        </ons-toolbar>
+        <div ng-show= "pageloaded">
+            <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')">
+                <div class="page-content-2">
+            
+                   
+                    <div>
+                        <p class="m-t-2">
+                            Earn Interest on Savings : 
+                            
+                        </p>
+                        <ons-select class="form-select" ng-model="page.interest">
+                            <option value="">Choose Option</option>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </ons-select>
+    
+                        <p class="m-t-2">
+                            Weekly SMS Notification  
+                            
+                        </p>
+                        <ons-select class="form-select" ng-model="page.weeksms">
+                                <option value="">Choose Option</option>
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                        </ons-select>
+    
+    
+                        <p class="m-t-2">
+                             Monthly SMS Notification
+                             
+                        </p>
+                        <ons-select class="form-select" ng-model="page.monthsms">
+                                <option value="">Choose Option</option>
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                        </ons-select>
+    
+                        <p class="m-t-2">
+                                Weekly Savings Email Notification
+                               
+                        </p>
+                        <ons-select class="form-select" ng-model="page.weekemail">
+                                <option value="">Choose Option</option>
+                                <option value="yes">yes</option>
+                                <option value="no">no</option>
+                        </ons-select>    
+    
+                            <p class="m-t-2">
+                                    Monthly Savings Email Notification
+                                     
+                            </p>
+                            <ons-select class="form-select" ng-model="page.monthemail">
+                                    <option value="">Choose Option</option>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                            </ons-select>
+                                
+                            
+                        
+                        <ons-button class="dashboard-btn dashboard-btn-trans" modifier="large" ng-click="page.changesetting()">Save</ons-button>
+                    </div>
+                    
+            
+                        
+                   
+                </div>
+            </div>
+        
+            
+        </div>  
+        
+        <ons-modal var="loadingModal" direction="up">
+            <div style="text-align: center">
+                <p>
+                    <!--<ons-button ng-click="loadingModal.hide()">Hide modal</ons-button>-->
+                    <ons-progress-circular indeterminate></ons-progress-circular>
+                </p>
+            </div>
+        </ons-modal>
+    
+    </ons-page>
+    
+    
+    
+    

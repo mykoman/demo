@@ -1,0 +1,154 @@
+<ons-page  ng-controller="SavingrecorddetailController as page">
+    <!--The api for this cashplans fetches for all transactions, daily, weekly and monthly plans.-->
+    <!--Some tweaking was done done to accomodate for individual differences in the plans-->
+    <!--Some elements would not show except it a daily account or weekly or monthly-->
+    <!--Also using scope, eg target will only show the one that exist, it will keep the non-existing varaible silent -->
+    <!--Watch out for weekly target, it is weekly_target contrary to the others-->
+    <ons-toolbar>
+        <div class="left">
+            <div class="left"><ons-back-button ng-click="splitter.load('html/savingsrecord.html')"></ons-back-button></div>
+        </div>
+        <div class="center">{{page.account.title}} {{user.account.title}}</div>
+    </ons-toolbar>
+
+    <div class="container-wrapper">
+        <h1 class="dashboard-title">
+            Account Information
+        </h1>
+        <article class="dashboard-list-item">
+            <div class="title">
+                Amount
+            </div>
+            <div class="subtitle">
+                ₦ {{user.account.total_deposit}}
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">
+            <div class="title">
+                Interest
+            </div>
+            <div class="subtitle">
+                ₦ {{user.account.interest.total_interest  | number : 2}}
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">
+            <div class="title">
+                Date Created
+            </div>
+            <div class="subtitle">
+                
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">
+            <div class="title">
+                Savings Occurence
+            </div>
+            <div class="subtitle">
+                Every {{user.account.debit_time}}
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">
+            <div class="title">
+                Target Amount
+            </div>
+            <div class="subtitle">
+                ₦ {{user.account.day_target}} {{user.account.weekly_target}} {{user.account.month_target}}
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">
+            <div class="title">
+                Last Savings Date
+            </div>
+            <div class="subtitle">
+                
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item" ng-show="user.account.amount_daily">
+            <div class="title">
+                Category
+            </div>
+            <div class="subtitle">
+                Daily Savings
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item" ng-show="user.account.amount_daily">
+            <div class="title">
+                Category
+            </div>
+            <div class="subtitle">
+                Weekly Savings
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item" ng-show="user.account.amount_monthly">
+            <div class="title">
+                Category
+            </div>
+            <div class="subtitle">
+                Monthly Savings
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">
+            <div class="title">
+                Status
+            </div>
+            <div class="subtitle">
+                {{user.account.status}}
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item" ng-show="user.account.amount_daily">
+            <div class="title">
+                Completion Level
+            </div>
+            <div class="subtitle">
+                <ons-progress-circular value="{{((user.account.total_deposit / user.account.day_target) *100)  | number : 2}}" secondary-value="100">
+                    
+                </ons-progress-circular>
+                {{((user.account.total_deposit / user.account.day_target) *100)  | number : 2}} %
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item" ng-show="user.account.amount_weekly">
+            <div class="title">
+                Completion Level
+            </div>
+            <div class="subtitle">
+                <ons-progress-circular value="{{((user.account.total_deposit / user.account.weekly_target) *100)  | number : 2}}" secondary-value="100">
+                    
+                </ons-progress-circular>
+                {{((user.account.total_deposit / user.account.weekly_target) *100)  | number : 2}} %
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item" ng-show="user.account.amount_monthly">
+            <div class="title">
+                Completion Level
+            </div>
+            <div class="subtitle">
+                <ons-progress-circular value="{{((user.account.total_deposit / user.account.month_target) *100)  | number : 2}}" secondary-value="100">
+                    
+                </ons-progress-circular>
+                {{((user.account.total_deposit / user.account.month_target) *100)  | number : 2}} %
+            </div>
+        </article>
+        
+        <article class="dashboard-list-item">        
+            <ons-button class="dashboard-btn dashboard-btn-green">
+                Withdraw
+            </ons-button>
+            <ons-button class="dashboard-btn dashboard-btn-red">
+                Stop
+            </ons-button>
+        </article>
+    </div>
+    
+</ons-page>

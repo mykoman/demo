@@ -1,0 +1,81 @@
+<ons-page ng-controller="RegisterController as register" >
+        <div class="full-height page-bg">
+            <div class="page-content">
+                <div class="centre" align="absmiddle" style="margin-top: 20px; margin-bottom: 2em" >
+                    <span class="img-bg">
+                        <img src="images/icons/stash.png" height="50em">
+                    </span>
+                    <h1 class="txt-medium uppercase" style="font-size:1.4em">
+                        REGISTER
+                    </h1>
+                </div>
+    
+                <p>
+                    <ons-input class="d-block" id="firstname" modifier="underbar" placeholder="First name" float ng-model="register.firstname"></ons-input>
+                </p>
+                <p>
+                    <ons-input class="d-block" id="lastname" modifier="underbar" placeholder="Last name" float ng-model="register.lastname"></ons-input>
+                </p>
+    
+                <p>
+                    <ons-input class="d-block" id="phone" modifier="underbar" placeholder="Phone Number" float ng-model="register.phone"></ons-input>
+                </p>
+    
+                <p>
+                    <ons-input class="d-block" id="email" modifier="underbar" placeholder="Email" float ng-model="register.email"></ons-input>
+                </p>
+    
+                <p>
+                    <ons-input class="d-block" id="referral_code" modifier="underbar" placeholder="Referral Code (Optional)" float ng-model="register.referral_code"></ons-input>
+                </p>
+                <p>
+                    <ons-input class="d-block" id="password" modifier="underbar" type="password" placeholder="Password" float ng-model="register.password"></ons-input>
+                </p>
+                <p>
+                    <ons-input class="d-block" id="password2" modifier="underbar" type="password" placeholder="Repeat password" float ng-model="register.password2"></ons-input>
+                </p>
+                <p style="display:flex; align-items:center;line-height:0;">
+                    <label class="left" style="padding-right:1em;">
+                        <ons-checkbox input-id="check" checked ng-model="register.accept"></ons-checkbox>
+                    </label>
+                    <label for="check" class="center">
+                        <small>I agree to the
+                            <span style="color: blue" ng-click="register.preserve_registrant_input()">
+                                terms and conditions.
+                            </span>
+                        </small>
+                    </label>
+                </p>
+                <p style="margin-top: 30px;">
+                    <ons-button class="d-block carousel-cta text-color-white" ng-disabled="!register.accept" ng-click="register.signup()">
+                        Register
+                    </ons-button>
+                </p>
+                <p style="text-align: center">
+                    <span>Already a member?</span>
+                    <ons-button class="text-color-white p-o-0 txt-medium" style="color: green;" modifier="quiet" ng-click="splitter.load('login.html')" >
+                        Login
+                    </ons-button>
+                </p>
+                <p class="partnership">
+                    Stash.ng is a product of Stash Fintech Ltd in partnership with Providus Bank Plc
+                </p>
+                <ons-progress-circular ng-show="register.loading" indeterminate></ons-progress-circular>
+            </div>
+        </div>
+    
+    
+        <ons-modal var="loadingModal" direction="up">
+            <!-- <div style="text-align: center">
+                <p>
+                    
+                    <ons-progress-circular indeterminate></ons-progress-circular>
+                </p>
+            </div> -->
+            <div style="text-align: center">
+                <p>
+                <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+                </p>
+            </div>
+        </ons-modal>
+    </ons-page>

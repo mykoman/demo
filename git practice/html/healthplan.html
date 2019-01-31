@@ -1,0 +1,109 @@
+<ons-page  ng-controller="HealthplanController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Create Health Plan</div>
+    </ons-toolbar>
+    <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')">
+        <div class="page-content-2">
+
+            <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+                <ons-progress-circular indeterminate ></ons-progress-circular>
+            </div>
+
+
+            <div ng-show="pageloaded">
+
+                <div>
+                    <h1 class="form-title">
+                        Choose the plan that best suits you
+                    </h1>
+
+                    <ons-select class="form-select" ng-model="page.plan" id="choose-sel" ng-change="page.changeplan()">
+                        <option value="">Choose Savings Plan</option>
+                        <option value="daily">Daily Health Plan</option>
+                        <option value="weekly">Weekly Health Plan</option>
+                        <option value="monthly">Monthly Health Plan</option>
+                    </ons-select>
+
+                    <ons-select class="form-select" ng-model="page.weeklytime" ng-show="weekly">
+                        <option value="" selected> Charge Day</option>
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </ons-select>
+
+                    <ons-select class="form-select" ng-model="page.monthlytime" id="monthlytime" ng-show="monthly">
+                        <option value="" selected> Charge Day</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                        <option value="6th">6th</option>
+                        <option value="7th">7th</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                        <option value="11th">11th</option>
+                        <option value="12th">12th</option>
+                        <option value="13th">13th</option>
+                        <option value="14th">14th</option>
+                        <option value="15th">15th</option>
+                        <option value="16th">16th</option>
+                        <option value="17th">17th</option>
+                        <option value="18th">18th</option>
+                        <option value="19th">19th</option>
+                        <option value="20th">20th</option>
+                        <option value="21th">21th</option>
+                        <option value="22nd">22nd</option>
+                        <option value="23rd">23rd</option>
+                        <option value="24th">24th</option>
+                        <option value="25th">25th</option>
+                        <option value="26th">26th</option>
+                        <option value="27th">27th</option>
+                        <option value="28th">28th</option>
+                    </ons-select>
+
+                </div>
+
+                <div>
+                    <ons-select class="form-select" ng-model="page.hmo" id="choose-hmo" ng-change="page.changehmo()">
+                        <option value="" selected> Choose HMO</option>
+                        <option value="Reliance">Reliance</option>
+                        <option value="Clearline">Clearline</option>
+
+                    </ons-select>
+
+                    <ons-select class="form-select" ng-show="hmochosen" ng-model="page.state" id="state" ng-change="page.changestate()">
+                        <option value="" selected="">State of Residence</option>
+                        <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
+                    </ons-select>
+
+                    <ons-select class="form-select" ng-model="page.city" id="city" ng-show="stateloaded" ng-change="page.changecity()">
+                        <option value="" selected="">City of Residence</option>
+                        <option ng-repeat="item in cities" value="{{item}}">{{item}}</option>
+                    </ons-select>
+
+                    <ons-select class="form-select" ng-model="page.hospital" id="hospital" ng-show="hospitalloaded" ng-change="page.changehospital()">
+                        <option value="" selected="">Choose Hospital</option>
+                        <option ng-repeat="item in hospitals" value="{{item.id}}">{{item.name}}</option>
+                    </ons-select>
+
+                    <div style="margin-top: 1.5em" >
+                        <ons-button class="dashboard-btn dashboard-btn-trans" modifier="large" ng-click="page.startplan()">Start Health Plan </ons-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</ons-page>

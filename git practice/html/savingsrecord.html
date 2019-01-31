@@ -1,0 +1,71 @@
+<ons-page  ng-controller="SavingsrecordController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Savings Record(s)</div>
+    </ons-toolbar>
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+    <div class="container-wrapper m-t-1">
+        <div ng-show="pageloaded">
+            <div ng-show="userdetail == '' " style="padding: 2em"><em><p>You currently do not have any account. You can create a new plan that suits you</p></em></div>
+            <ons-list class="ons-list">
+                <ons-list-header class="dashboard-title">
+                    Record List
+                </ons-list-header>
+                <!-- <ons-list-item class="ons-list-item" ng-click="page.picksingleaccount(item); splitter.load('html/savingrecorddetail.html')" ng-repeat="item in savingrecord" tappable> -->
+                <ons-list-item class="ons-list-item"  ng-repeat="item in savingrecord">    
+                   <article class="dashboard-plan-card">
+                        <div class="icon">
+                            <i class="fa fa-money"></i>
+                        </div>
+                        <div class="details">
+                            <div class="header">
+                                <h3 class="plan-name">
+                                    {{item.title}}
+                                </h3>
+                            </div>
+                            <div class="stats">
+                                <h2 class="balance">
+                                    <span class="label">Amount: </span>
+                                    <span class="amount">
+                                        <!-- &#x20a6;{{item.total_deposit | number : 2}} -->
+                                        &#x20a6;{{item.amount | number : 2}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance" ng-hide="(item.title == null) ">
+                                    <span class="label">Account: </span>
+                                    <span class="amount">
+                                        {{item.title}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance" ng-hide="(item.plan == null) ">
+                                    <span class="label">Purpose: </span>
+                                    <span class="amount">
+                                        {{item.plan}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance">
+                                    <span class="label">Date: </span>
+                                    <span class="amount">
+                                        {{item.created_at}}
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+                    </article>
+                   
+                </ons-list-item>
+            </ons-list>
+            
+        </div>
+    </div>
+    
+
+</ons-page>

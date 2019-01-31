@@ -1,0 +1,224 @@
+<ons-page  ng-controller="CashplandetailController as page">
+    <!--The api for this cashplans fetches for all transactions, daily, weekly and monthly plans.-->
+    <!--Some tweaking was done done to accomodate for individual differences in the plans-->
+    <!--Some elements would not show except it a daily account or weekly or monthly-->
+    <!--Also using scope, eg target will only show the one that exist, it will keep the non-existing varaible silent -->
+    <!--Watch out for weekly target, it is weekly_target contrary to the others-->
+    <ons-toolbar>
+        <div class="left">
+            <div class="left"><ons-back-button ng-click="splitter.load('html/usersavingplan.html')"></ons-back-button></div>
+        </div>
+        <div class="center">{{user.account.title}}</div>
+    </ons-toolbar>
+    
+    <section>
+        <div class="container-wrapper m-t-1">
+            <article class="dashboard-list-item">
+                <div class="profile-box">
+                    <div class="image-box">
+                        <img src="images/people/onewoman.png" alt="" class="profile-image">
+                    </div>
+                    <div class="info-box">
+                        <div class="name">
+                            {{user.fullname}}
+                        </div>
+                        <div class="status">
+                            {{user.account.status}}
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+            
+        <div class="container-wrapper">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Amount
+                </div>
+                <div class="subtitle">
+                    ₦ {{(user.account.total_deposit) | number : 2}} {{(user.account.amount) | number : 2}} 
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Interest
+                </div>
+                <div class="subtitle">
+                    ₦ {{(user.account.interest.total_interest) | number : 2}}
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Purpose
+                </div>
+                <div class="subtitle">
+                    {{user.account.title}}
+                </div>
+            </article>
+        </div>
+        <div ng-show="user.account.debit_time" class="container-wrapper" ng-hide="user.account.duration_day">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Savings occurence
+                </div>
+                <div class="subtitle">
+                    Every {{user.account.debit_time}}
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper" ng-hide="user.account.duration_day">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Recurrent Amount
+                </div>
+                <div class="subtitle">
+                    ₦ {{user.account.amount_daily| number : 2}}
+                    {{user.account.amount_weekly | number : 2}}
+                    {{user.account.amount_monthly | number : 2}}
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Date Created
+                </div>
+                <div class="subtitle">
+                    
+                    {{user.account.created_at | date :  "dd.MM.y"}}
+                    
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Target Amount
+                </div>
+                <div class="subtitle">
+                    ₦
+                    {{user.account.day_target | number : 2}}
+                    {{user.account.weekly_target | number : 2}}
+                    {{user.account.month_target | number : 2}}
+                    {{user.account.amount | number : 2}}
+                    
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper" ng-hide="user.account.duration_day">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Last Savings Date
+                </div>
+                <div class="subtitle">
+                    {{user.account.last_transaction_date | date :  "dd.MM.y"}}
+                </div>
+            </article>
+        </div>
+            
+        <div class="container-wrapper" ng-show="user.account.amount_daily">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Category
+                </div>
+                <div class="subtitle">
+                    Daily Savings
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper" ng-show="user.account.amount_weekly">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Category
+                </div>
+                <div class="subtitle">
+                    Weekly Savings
+                </div>
+            </article>
+        </div>
+        <div class="container-wrapper" ng-show="user.account.amount_monthly">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Category
+                </div>
+                <div class="subtitle">
+                    Monthly Savings
+                </div>
+            </article>
+        </div>
+
+        <div class="container-wrapper" ng-show="user.account.duration_day">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Category
+                </div>
+                <div class="subtitle">
+                    Casual Savings
+                </div>
+            </article>
+        </div>
+        
+        <div class="container-wrapper" ng-show="user.account.amount_daily">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Completion Level:
+                </div>
+                <div class="subtitle">
+                    {{((user.account.total_deposit / user.account.day_target) *100) | number : 2}} %
+                </div>
+            </article>
+        </div>
+
+        <div class="container-wrapper" ng-show="user.account.amount_weekly">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Completion Level:
+                </div>
+                <div class="subtitle">
+                    {{((user.account.total_deposit / user.account.weekly_target) *100) | number : 2}} %
+                </div>
+            </article>
+        </div>
+
+        <div class="container-wrapper" ng-show="user.account.amount_monthly">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Completion Level:
+                </div>
+                <div class="subtitle">
+                    {{((user.account.total_deposit / user.account.month_target) *100) | number : 2}}} %
+                </div>
+            </article>
+        </div>
+
+        <div class="container-wrapper" ng-show="user.account.amount">
+            <article class="dashboard-list-item">
+                <div class="title">
+                    Completion Date:
+                </div>
+                <div class="subtitle">
+                    {{user.account.completion_date }}
+                </div>
+            </article>
+        </div>
+        
+    </section>
+
+    <!-- Can't get these thress to show. Use Template above to display these items -->
+    <!-- <ons-list>
+        <ons-list-item ng-show="user.account.amount_weekly">Completion Level: <ons-progress-circular value="{{((user.account.total_deposit / user.account.weekly_target) *100) | number : 2}}" secondary-value="100"></ons-progress-circular> <span style="padding-left: 2em;"><strong>{{((user.account.total_deposit / user.account.weekly_target) *100) | number : 2}} %</strong></span></ons-list-item>
+        <ons-list-item ng-show="user.account.amount_monthly">Completion Level: <ons-progress-circular value="{{((user.account.total_deposit / user.account.month_target) *100) | number : 2}}" secondary-value="100"></ons-progress-circular> <span style="padding-left: 2em;"><strong>{{((user.account.total_deposit / user.account.month_target) *100) | number : 2}} %</strong></span></ons-list-item>
+    </ons-list> -->
+        
+    <div class="container-wrapper m-t-1" ng-hide="user.account.duration_day">
+        <!-- <ons-button class="dashboard-btn dashboard-btn-green" >Withdraw</ons-button> -->
+        <ons-button ng-show="(user.account.status == 'Active')" ng-click="page.pausesaving(user.account)" class="dashboard-btn dashboard-btn-red">Pause</ons-button>
+        <ons-button ng-show="(user.account.status == 'Paused')" ng-click="page.resumesaving(user.account)" class="dashboard-btn dashboard-btn-red">Resume Plan</ons-button>
+    </div>
+
+
+</ons-page>

@@ -1,0 +1,127 @@
+<ons-page ng-controller="ProfileinitController as page" >
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Profile</div>
+    </ons-toolbar>
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;" ng-show="pageloaded">
+
+
+        <div class="centre" align="absmiddle" style="margin-top: 20px; margin-bottom: 3em" >
+            <img ng-src="{{img}}" height="100em">
+        </div>
+
+        <p>
+            <ons-input id="firstname" type="text" modifier="underbar" placeholder="First name" float ng-model="page.firstname" required></ons-input>
+        </p>
+        <p>
+            <ons-input id="surname" type="text" modifier="underbar" placeholder="Last name" float ng-model="page.surname" required></ons-input>
+        </p>
+
+        <p>
+            <ons-input id="othername" type="text" modifier="underbar" placeholder="Other name" float ng-model="page.othername"></ons-input>
+        </p>
+        
+        <!--  New additions -->
+        <p>
+            <ons-input id="gender" type="text" modifier="underbar" placeholder="Gender" float ng-model="page.gender"></ons-input>
+        </p>
+        
+        <p>
+            <ons-input id="birthday" type="date" modifier="underbar" float ng-model="page.birthday"></ons-input>
+        </p>
+        <!-- --------- -->
+        <p>
+            <ons-input id="phone" modifier="underbar" placeholder="Phone Number" float ng-model="page.phone"></ons-input>
+        </p>
+
+        <p>
+            <ons-input id="email" type="email" modifier="underbar" placeholder="Email" float ng-model="page.email"></ons-input>
+        </p>
+
+        <p>
+            <ons-input id="address" modifier="underbar" placeholder="Address" float ng-model="page.address"></ons-input>
+        </p>
+
+
+
+        <div style="text-align: left; width: 250px; margin: 0 auto;">
+            <!--<p>Choose Country<p>-->
+            <ons-select ng-model="page.country">
+                <option value="" disabled selected hidden>Choose Country</option>
+                <option value="Nigeria" class="ng-binding ng-scope" style=" padding-bottom: 5px; border-bottom: solid 1px #ccc; ">Nigeria</option>
+                <option ng-repeat="country in countries" value="{{country.country_name}}" >{{country.country_name}}</option>
+            </ons-select>
+            <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+        </div>
+
+        <div style="text-align: left; width: 250px; margin: 0 auto;">
+            <!--<p>Choose Country<p>-->
+            <ons-select ng-model="page.state">
+                <option value="" disabled selected hidden>Choose State</option>
+                <option ng-repeat="state in states" value="{{state.name}}">{{state.name}}</option>
+            </ons-select>
+            <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+        </div>
+
+        <div>
+            <!--<p>Choose Country<p>-->
+            <ons-select ng-model="page.hearaboutus" id="choose-sel-hearabout" ng-change="page.changehearabout()">
+                <option value="" disabled selected hidden>How did you know about stash?</option>
+                <option value="Radio Advert">Radio Advert</option>
+                <option value="TV Advert">Television Advert</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Twitter">Twitter</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Friends &amp; family">Friends &amp; family</option>
+                <option value="Stash agent">Stash agent</option>
+                <option value="Others">Others</option>
+            </ons-select>
+            <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+        </div>
+
+        <p ng-show="other">
+            <ons-input  id="hearaboutus_others" modifier="underbar" placeholder="Kindly specify" float ng-model="page.hearaboutus_others"></ons-input>
+        </p>
+        <!--<p>-->
+            <!--<label class="left">-->
+                <!--<ons-checkbox input-id="check" checked ng-model="page.accept"></ons-checkbox>-->
+            <!--</label>-->
+            <!--<label for="check" class="center">-->
+                <!--<small>I agree to the <span style="color: red" ng-click="splitter.load('home.html')">terms and conditions</span></small>-->
+            <!--</label>-->
+        <!--</p>-->
+        <p style="margin-top: 30px;">
+            <ons-button ng-click="page.updateuser()">Update</ons-button>
+        </p>
+
+        <ons-progress-circular ng-show="page.loading" indeterminate></ons-progress-circular>
+
+    </div>
+
+
+    <ons-modal var="loadingModal" direction="up">
+        <!-- <div style="text-align: center">
+            <p>
+                
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </p>
+        </div> -->
+        <div style="text-align: center">
+            <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+        </div>
+    </ons-modal>
+</ons-page>
+

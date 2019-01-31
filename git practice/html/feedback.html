@@ -1,0 +1,59 @@
+<ons-page ng-controller="FeedbackController as contact">
+    <ons-toolbar>
+        <div class="left">
+            <ons-back-button ng-click="splitter.load('html/info.html')"></ons-back-button>
+        </div>
+        <div class="center"><strong>Feedback</strong></div>
+
+    </ons-toolbar>
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em;">
+        <ons-progress-circular indeterminate></ons-progress-circular>
+    </div>
+    <div ng-show="pageloaded">
+        <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg'); padding-top: 30px; height: 100%;">
+            <div class="page-content-2">
+                <div>
+                    <h1 class="form-title">
+                        Reach out to us. We will be glad to hear from you!
+                    </h1>
+                    <p>
+                        <ons-input class="d-block" id="subject" ng-model="contact.subject" modifier="underbar"
+                            placeholder="Subject"></ons-input>
+                    </p>
+                    <!-- <p>
+                        <ons-input class="d-block" id="firstname" modifier="underbar" placeholder="Your firstname" float ng-model="contact.firstname"></ons-input>
+                    </p>
+
+                    <p>
+                        <ons-input class="d-block" id="lastname" modifier="underbar" placeholder="Your lastname" float ng-model="contact.lastname"></ons-input>
+                    </p>
+
+                    <p>
+                        <ons-input class="d-block" id="emailuser" modifier="underbar" placeholder="Your Email address" float ng-model="contact.emailuser"></ons-input>
+                    </p>
+                    <p>
+                        <ons-input class="d-block" id="phone" modifier="underbar" placeholder="+23480123456789" float ng-model="contact.phone"></ons-input>
+                    </p> -->
+
+                    <p>
+                        <textarea class="d-block" name="message" rows="10" placeholder="Your message" ng-model="contact.message"></textarea>
+                    </p>
+                </div>
+                <div style="margin-top: 2em; padding: 2em; margin-bottom: 1.5em;">
+                    <ons-button class="d-block carousel-cta text-color-white" modifier="large" ng-click="contact.sendMail();">
+                        <ons-icon icon="md-envelop"></ons-icon>
+                        <span>Send</span>
+                    </ons-button>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        <div style="text-align:right; padding:10px; font-size:0.8em; color:#ccc" id="page_last_mod">
+            www.stash.ng
+        </div> -->
+    </div>
+
+    <!-- <ons-toast style="padding: 0.3em" var="toast" animation-options="{duration: 0.5, delay: 0.5, timing: 'ease-in'}">
+        Message Sent!
+    </ons-toast> -->
+</ons-page>

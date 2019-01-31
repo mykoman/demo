@@ -1,0 +1,181 @@
+<ons-page ng-controller="ProfileController as page" >
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Profile</div>
+    </ons-toolbar>
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+        </p>
+    </div>
+
+    <div ng-show="pageloaded">
+        <div class="full-height page-bg" style="background-image: url('images/heroes/red.jpg')">
+            <div class="page-content-2">
+
+                <div class="profile-page-number-box">
+                    <!--    Box 1 -->
+                    <div class="profile-page-number-circle highlight" style="margin-left: 1.83%;"><span class="profile-page-number">1</span></div><!--
+                            horizontal line btw boxes
+                        --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line"></div>
+                    </div><!--
+                            Box 2
+                    --><div class="profile-page-number-circle"><span class="profile-page-number">2</span></div><!--
+                                    horizontal line btw boxes
+                        --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line"></div>
+                    </div><!--
+                                                Box 3
+                    --><div class="profile-page-number-circle"><span class="profile-page-number">3</span></div><!--
+                                                    horizontal line btw boxes
+                    --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line"></div>
+                    </div><!--
+                                                Box 4
+                    --><div class="profile-page-number-circle"><span class="profile-page-number">4</span></div><!--
+                                                    horizontal line btw boxes
+                    --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line"></div>
+                    </div><!--
+                                                Box 5
+                    --><div class="profile-page-number-circle"><span class="profile-page-number">5</span></div><!--
+                                                    horizontal line btw boxes
+                    --><div style="display:inline-block; width: 3.66%; box-sizing: border-box; height: 43px;">
+                        <div class="draw-line"></div>
+                    </div><!--
+                                                Box 6
+                    --><div class="profile-page-number-circle" style="margin-right: 1.83%;"><span class="profile-page-number">6</span></div>
+                </div>
+
+                <p class="profile-bio-p">
+                    <ons-input id="firstname" type="text" modifier="underbar" placeholder="First name" float ng-model="page.firstname" style = "width: 100%;" required></ons-input>
+                </p>
+                <p class="profile-bio-p">
+                    <ons-input id="surname" type="text" modifier="underbar" placeholder="Last name" float ng-model="page.surname" style = "width: 100%;" required></ons-input>
+                </p>
+
+                <p class="profile-bio-p">
+                    <ons-input id="othername" type="text" modifier="underbar" placeholder="Other name" float ng-model="page.othername" style = "width: 100%;" ></ons-input>
+                </p>
+
+                <!--  New additions -->
+                <!-- <p>
+                            <ons-input id="gender" type="text" modifier="underbar" placeholder="Gender" float ng-model="page.gender"></ons-input>
+                        </p> -->
+
+                <div>
+                    <!--<p>Choose Country<p>-->
+                    <ons-select class="form-select" ng-model="page.gender" id="choose-sel-gender" style = "width: 100%;">
+                        <option value="" disabled selected hidden>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </ons-select>
+                    <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+                </div>
+
+                <p class="profile-bio-p">
+                    <ons-input id="birthday" type="date" modifier="underbar" float ng-model="page.dob" style = "width: 100%" ></ons-input>
+                </p>
+                <!-- --------- -->
+                <p class="profile-bio-p">
+                    <ons-input id="phone" modifier="underbar" readonly placeholder="Phone Number" float ng-model="page.phone" style = "width: 100%;"></ons-input>
+                </p>
+
+                <p class="profile-bio-p">
+                    <ons-input id="email" type="email" readonly modifier="underbar" placeholder="Email" float ng-model="page.email" style = "width: 100%;"></ons-input>
+                </p>
+
+
+
+
+
+                <div>
+                    <!--<p>Choose Country<p>-->
+                    <ons-select class="form-select" ng-model="page.country" id="choose-sel-country" ng-change="page.countrychange()" style = "width: 100%;">
+                        <option value="" disabled hidden>Choose Country</option>
+                        <option value="Nigeria" class="ng-binding ng-scope" style=" padding-bottom: 5px; border-bottom: solid 1px #ccc; ">Nigeria</option>
+                        <option ng-repeat="country in countries" value="{{country.country_name}}">{{country.country_name}}</option>
+                    </ons-select>
+                    <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+                </div>
+
+                <div ng-show="state">
+                    <!--<p>Choose Country<p>-->
+                    <ons-select class="form-select" ng-model="page.state" id="choose-sel-state" style = "width: 100%;">
+                        <option value="" disabled selected hidden>Choose State</option>
+                        <option ng-repeat="state in states" value="{{state.name}}">{{state.name}}</option>
+                    </ons-select>
+                    <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+                </div>
+
+                <p class="profile-bio-p">
+                    <ons-input id="address" modifier="underbar" placeholder="Address" float ng-model="page.address" style = "width: 100%;"></ons-input>
+                </p>
+
+                <div>
+                    <!--<p>Choose Country<p>-->
+                    <ons-select class="form-select" ng-model="page.hearaboutus" id="choose-sel-hearabout" ng-change="page.changehearabout()"  style = "width: 100%;">
+                        <option value="" disabled selected hidden>How did you know about stash?</option>
+                        <option value="Radio Advert">Radio Advert</option>
+                        <option value="TV Advert">Television Advert</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Friends &amp; family">Friends &amp; family</option>
+                        <option value="Stash Agent">Stash agent</option>
+                        <option value="Others">Others</option>
+                    </ons-select>
+                    <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+                </div>
+
+                <p class="profile-bio-p" ng-show="other">
+                    <ons-input id="hearaboutus_others" modifier="underbar" placeholder="Kindly specify" float ng-model="page.hearaboutus_others" style = "width: 100%;"></ons-input>
+                </p>
+
+                <div ng-show="stashagent">
+                    <!--<p>Choose Country<p>-->
+                    <ons-select class="form-select" ng-model="page.stashagent" id="choose-sel-stashagents" style = "width: 100%;">
+                        <option value="" disabled selected hidden>Choose Stash Agent</option>
+                        <option ng-repeat="stashagent in stashagents" value="{{stashagent.id}}">{{stashagent.name}}</option>
+                        <option value="0">None of these</option>
+                    </ons-select>
+                    <!--<p>You have selected <strong>{{ page.selectedModifier }}</strong> plan</p>-->
+                </div>
+                <!--<p>-->
+                <!--<label class="left">-->
+                <!--<ons-checkbox input-id="check" checked ng-model="page.accept"></ons-checkbox>-->
+                <!--</label>-->
+                <!--<label for="check" class="center">-->
+                <!--<small>I agree to the <span style="color: red" ng-click="splitter.load('home.html')">terms and conditions</span></small>-->
+                <!--</label>-->
+                <!--</p>-->
+                <p class="profile-bio-p" style="margin-top: 30px;">
+                    <ons-button class="dashboard-btn" modifier="large" ng-click="page.updateuser()">Update</ons-button>
+                </p>
+
+                <ons-progress-circular ng-show="page.loading" indeterminate></ons-progress-circular>
+            </div>
+        </div>
+    </div>
+       
+    <ons-modal var="loadingModal" direction="up">
+        <!-- <div style="text-align: center">
+            <p>
+                
+                <ons-progress-circular indeterminate></ons-progress-circular>
+            </p>
+        </div> -->
+        <div style="text-align: center">
+            <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+        </div>
+    </ons-modal>
+</ons-page>
+

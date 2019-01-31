@@ -1,0 +1,37 @@
+<ons-page ng-controller="BankdetailController as page" >
+    <ons-toolbar  modifier="">
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Bank Details </div>
+    </ons-toolbar>
+
+    <div ng-show="pageloaded">
+        <div style="text-align: center; margin-top: 30px">
+
+            <p>
+                <ons-input id="accname" modifier="underbar"  value="{{accname}}" float  readonly></ons-input>
+            </p>
+
+            <p>
+                <ons-input id="accno" modifier="underbar" value="{{accno}}" float  readonly></ons-input>
+            </p>
+
+            <p>
+                <ons-input id="bank" value="{{bank}}" modifier="underbar" placeholder="" float  readonly></ons-input>
+            </p>
+
+        </div>
+    </div>
+
+
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+
+
+</ons-page>

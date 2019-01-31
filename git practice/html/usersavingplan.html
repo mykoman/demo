@@ -1,0 +1,78 @@
+<ons-page  ng-controller="UsercashplanController as page">
+    <ons-toolbar>
+        <div class="left">
+            <ons-toolbar-button ng-click="mySplitter.left.open()">
+                <ons-icon icon="md-menu"></ons-icon>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">Savings Plan(s)</div>
+    </ons-toolbar>
+    
+    <div ng-hide="pageloaded" style="text-align: center; padding-top: 4em">
+        <p>
+            <ons-icon icon="md-spinner" size="2em" spin></ons-icon> 
+            </p>
+    </div>
+    
+    <div ng-show="pageloaded">
+        <div ng-show="userdetail == '' " style="padding: 2em">
+            <em>
+                <p>
+                    You currently do not have any account. You can create a new plan that suits you by clicking the icon with "+" sign
+                </p>
+            </em>
+        </div>
+        <div class="container-wrapper" ng-hide="userdetail == '' ">
+            <ons-list class="ons-list">
+                <ons-list-header class="dashboard-title" style="margin-bottom: 0.2em !important;">
+                    Savings List
+                </ons-list-header>
+                <p style="margin-top: 0 !important;">
+                    Tap on a savings plan to view more detail.
+                </p>
+                <ons-list-item class="ons-list-item" ng-click="page.picksingleaccount(item); splitter.load('html/savingplandetail.html')" ng-repeat="item in userdetail" tappable>
+                   
+                   <article class="dashboard-plan-card">
+                        <div class="icon">
+                            <i class="fa fa-money"></i>
+                        </div>
+                        <div class="details">
+                            <div class="header">
+                                <h3 class="plan-name">
+                                    {{item.title}}
+                                </h3>
+                                <div class="status">
+                                    <span class="active">{{item.status}}</span>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <h2 class="balance">
+                                    <span class="label">Account Balance: </span>
+                                    <span class="amount">
+                                        <!-- &#x20a6;{{item.total_deposit | number : 2}} -->
+                                        &#x20a6;{{item.total_deposit | number : 2}} {{item.amount | number : 2}}
+                                    </span>
+                                </h2>
+                                <h2 class="balance">
+                                    <span class="label">interest: </span>
+                                    <span class="amount">
+                                        <!-- &#x20a6;{{item.interest.total_interest | number : 2}} -->
+                                        &#x20a6;{{item.interest.total_interest | number : 2}}
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+                    </article>
+                </ons-list-item>
+            </ons-list>
+        </div>        
+        <!--<div style="text-align: center; margin-top: 2em">-->
+            <!--<ons-button  ng-click="splitter.load('html/cashplan.html')">Create Savings Plan</ons-button>-->
+        <!--</div>-->
+    </div>
+
+    <ons-fab position="bottom right" ng-click="splitter.load('html/savingplan.html')">
+        <ons-icon icon="md-plus"></ons-icon>
+    </ons-fab>
+
+</ons-page>
